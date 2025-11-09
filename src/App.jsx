@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Routes, Route } from "react-router-dom";
 import { PodcastProvider } from "./context/PodcastContext";
 import { fetchPodcasts } from "./api/fetchPodcasts";
 import { genres } from "./data";
@@ -8,11 +9,12 @@ import SortSelect from "./components/SortSelect";
 import GenreFilter from "./components/GenreFilter";
 import PodcastGrid from "./components/PodcastGrid";
 import Pagination from "./components/Pagination";
+import ShowDetails from "./components/ShowDetails"; // will connect to your file next
 import styles from "./App.module.css";
 
 /**
  * Root component of the Podcast Explorer app.
- * Handles data fetching and layout composition.
+ * Handles data fetching, routing, and layout composition.
  */
 export default function App() {
   const [podcasts, setPodcasts] = useState([]);
@@ -29,33 +31,49 @@ export default function App() {
 
       <PodcastProvider initialPodcasts={podcasts}>
         <main className={styles.main}>
-          <section className={styles.controls}>
-            <SearchBar />
-            <GenreFilter genres={genres} />
-            <SortSelect />
-          </section>
+          <Routes>
+            {/* 🏠 Homepage / Listing page */}
+            <Route
+              path="/"
+              element={
+                <>
+                  <section className={styles.controls}>
+                    <SearchBar />
+                    <GenreFilter genres={genres} />
+                    <SortSelect />
+                  </section>
 
-          {loading && (
-            <div className={styles.messageContainer}>
-              <div className={styles.spinner}></div>
-              <p>Loading podcasts...</p>
-            </div>
-          )}
+                  {loading && (
+                    <div className={styles.messageContainer}>
+                      <div className={styles.spinner}></div>
+                      <p>Loading podcasts...</p>
+                    </div>
+                  )}
 
-          {error && (
-            <div className={styles.message}>
-              <div className={styles.error}>
-                Error occurred while fetching podcasts: {error}
-              </div>
-            </div>
-          )}
+                  {error && (
+                    <div className={styles.message}>
+                      <div className={styles.error}>
+                        Error occurred while fetching podcasts: {error}
+                      </div>
+                    </div>
+                  )}
 
-          {!loading && !error && (
-            <>
-              <PodcastGrid genres={genres} />
-              <Pagination />
-            </>
-          )}
+                  {!loading && !error && (
+                    <>
+                      <PodcastGrid genres={genres} />
+                      <Pagination />
+                    </>
+                  )}
+                </>
+              }
+            />
+
+            {/* 🎙️ Podcast details page */}
+            <Route
+              path="/show/:id"
+              element={<ShowDetails podcasts={podcasts} genres={genres} />}
+            />
+          </Routes>
         </main>
       </PodcastProvider>
     </>
