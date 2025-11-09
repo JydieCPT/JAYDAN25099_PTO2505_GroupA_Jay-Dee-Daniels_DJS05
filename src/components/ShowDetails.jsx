@@ -9,7 +9,9 @@ export default function ShowDetails() {
   const [expandedSeason, setExpandedSeason] = useState(null);
   const [error, setError] = useState(null);
 
-  // Fetch full details when component mounts
+/**
+ *Fetch full details when component mounts
+ */
   useEffect(() => {
     const fetchPodcast = async () => {
       try {
