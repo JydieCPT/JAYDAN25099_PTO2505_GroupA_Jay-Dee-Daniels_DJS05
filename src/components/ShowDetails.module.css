@@ -1,0 +1,178 @@
+.container {
+  padding: 2rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.backButton {
+  display: inline-block;
+  margin-bottom: 1rem;
+  color: #4b4453;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.backButton:hover {
+  text-decoration: underline;
+}
+
+/* --- Header Card (Podcast main info) --- */
+.headerCard {
+  display: flex;
+  gap: 1.5rem;
+  background: #fafafa;
+  border-radius: 10px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+  flex-wrap: wrap;
+}
+
+.cover {
+  width: 220px;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.headerInfo {
+  flex: 1;
+  min-width: 250px;
+}
+
+.title {
+  margin-top: 0;
+  color: #2e003e;
+}
+
+.description {
+  color: #4b4453;
+  margin: 0.5rem 0 1rem;
+}
+
+.meta p {
+  margin: 0.3rem 0;
+}
+
+.genreTag {
+  display: inline-block;
+  background: #f3c4fb;
+  color: #2e003e;
+  border-radius: 12px;
+  padding: 0.25rem 0.75rem;
+  font-size: 0.8rem;
+  margin-right: 0.5rem;
+}
+
+/* --- Season Section --- */
+.seasonsSection {
+  margin-top: 2rem;
+}
+
+.seasonCard {
+  display: flex;
+  gap: 1rem;
+  background: #fff; /* Light background */
+  border-radius: 10px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  flex-wrap: wrap;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.seasonCard:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.seasonImage {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.seasonContent {
+  flex: 1;
+  min-width: 250px;
+}
+
+.seasonHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  margin-bottom: 0.5rem;
+}
+
+.toggleButton {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: #4b4453;
+  cursor: pointer;
+}
+
+.episodeList {
+  border-top: 1px solid #eee;
+  padding-top: 0.5rem;
+}
+
+.episodeItem {
+  margin-bottom: 1rem;
+}
+
+.episodeDescription {
+  color: #4b4453;
+  font-size: 0.9rem;
+}
+
+.audio {
+  width: 100%;
+  margin-top: 0.5rem;
+}
+
+.episodeCount {
+  font-weight: normal;
+  font-size: 0.9rem;
+  color: #4b4453;
+}
+
+/* --- Episodes Section --- */
+.episodeCard {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 0.75rem;
+  background: #fafafa;
+  border-radius: 8px;
+  margin-bottom: 0.75rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.episodeCard:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+}
+
+.episodeNumber {
+  font-weight: bold;
+  color: #2e003e;
+  font-size: 1.2rem;
+  margin-top: 0.2rem;
+}
+
+.episodeCard h4 {
+  margin: 0 0 0.25rem;
+  color: #2e003e;
+}
+
+.episodeCard p {
+  margin: 0 0 0.25rem;
+  color: #4b4453;
+}
+
+.episodeCard small {
+  color: #6d6875;
+}
